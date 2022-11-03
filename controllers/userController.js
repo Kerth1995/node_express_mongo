@@ -1,7 +1,7 @@
 const {response} = require('express');
 const bcrypt = require('bcryptjs');
-
 const User = require('../models/userDTO');
+const { generateJWT } = require('../helpers/jwt');
 
 
 const getUser = async (req, res) => {
@@ -34,13 +34,16 @@ const createUser = async (req, res = response) => {
 
         // Guardar usuario
         await user.save();
+        //generar token
+        const token = await generateJWT(user.UUID, user.email);
 
         // respuesta de guardar
         res.status(200).json({
             ok: true,
             code_state: 200,
             msg: 'User saved successfully',
-            user: user
+            user: user,
+            token: token
         });
 
     } catch (error) {

@@ -23,16 +23,10 @@ dbConnection();
 app.use(express.json());
 
 // rutas
+// user routes
 app.use('/api/user', require('./routes/user-routes'));
-/*
-app.get('/', (req, res) => {
-    res.status(200).json({
-        ok: true,
-        msg: 'Hola mundo'
-    });
-});
-*/
-
+// outh routes
+app.use('/api/login', require('./routes/outh-routes'));
 
 
 // levantar servidor nodejs
