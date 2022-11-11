@@ -27,6 +27,10 @@ app.use(express.json());
 app.use('/api/user', require('./routes/user-routes'));
 // outh routes
 app.use('/api/login', require('./routes/outh-routes'));
+// hospital routes
+app.use('/api/hospital', require('./routes/hospital-routes'));
+// doctor routes
+app.use('/api/doctor', require('./routes/doctor-routes'));
 
 
 // levantar servidor nodejs
