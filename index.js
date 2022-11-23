@@ -16,6 +16,9 @@ const app = express();
 // configuramos cors (sirve para especificar los dominios de donde seran consumida mi app y para especificar los middlewares)
 app.use(cors());
 
+// carpeta publica
+app.use(express.static('public'));
+
 // conectar a la base de datos
 dbConnection();
 
